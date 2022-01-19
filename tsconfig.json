@@ -12,6 +12,12 @@
     "importHelpers": true,
     "target": "es2017",
     "module": "es2020",
+    "paths": {
+      "spreadsheet": [
+        "dist/spreadsheet/spreadsheet",
+        "dist/spreadsheet"
+      ]
+    },
     "lib": [
       "es2020",
       "dom"

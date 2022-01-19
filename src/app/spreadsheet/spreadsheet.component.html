@@ -1,0 +1,27 @@
+<form [formGroup]="sheet" class="sheet-wrapper">
+  <div class="sheet">
+    <div class="header">
+      <div class="row" [style.grid-template-columns]="'repeat(' + columns.length + ', minmax(100px, 1fr)'">
+        <div class="column" *ngFor="let column of columns">
+          {{column.label}}
+        </div>
+      </div>
+    </div>
+
+    <div class="rows">
+      <div class="row" [style.grid-template-columns]="'repeat(' + (row | keys).length + ', minmax(100px, 1fr)'" *ngFor="let row of rows.controls">
+        <div class="column" [ngClass]="{'touched': row.get(column).touched, 'invalid': row.get(column).invalid}" *ngFor="let column of row | keys">
+          <input *ngIf="(column | getType: columns) !== 'select'" [formControl]="row.get(column)" [type]="column | getType: columns">
+
+          <select [formControl]="row.get(column)" *ngIf="(column | getType: columns) === 'select'">
+            <option *ngFor="let option of column | getOptions: columns" [value]="option.id">{{option.name}}</option>
+          </select>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div>
+    <button (click)="submit()">Submit</button>
+  </div>
+</form>
