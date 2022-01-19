@@ -11,10 +11,10 @@
     <div class="rows">
       <div class="row" [style.grid-template-columns]="'repeat(' + (row | keys).length + ', minmax(100px, 1fr)'" *ngFor="let row of rows.controls">
         <div class="column" [ngClass]="{'touched': row.get(column).touched, 'invalid': row.get(column).invalid}" *ngFor="let column of row | keys">
-          <input *ngIf="(column | getType: columns) !== 'select'" [formControl]="row.get(column)" [type]="column | getType: columns">
+          <input [readOnly]="(column | getColumn: columns).isReadOnly" *ngIf="(column | getColumn: columns).type !== 'select'" [formControl]="row.get(column)" [type]="(column | getColumn: columns).type">
 
-          <select [formControl]="row.get(column)" *ngIf="(column | getType: columns) === 'select'">
-            <option *ngFor="let option of column | getOptions: columns" [value]="option.id">{{option.name}}</option>
+          <select [formControl]="row.get(column)" *ngIf="(column | getColumn: columns).type === 'select'">
+            <option *ngFor="let option of (column | getColumn: columns).options" [value]="option.id">{{option.name}}</option>
           </select>
         </div>
       </div>

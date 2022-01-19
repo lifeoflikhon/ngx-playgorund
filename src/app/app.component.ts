@@ -12,13 +12,14 @@ export class AppComponent {
     {
       label: 'Name',
       propertyName: 'name',
-      type: 'string',
+      type: 'text',
       isRequired: true,
     },
     {
       label: 'Age',
       propertyName: 'age',
       type: 'number',
+      isReadOnly: true,
     },
     {
       label: 'Date of Birth',

@@ -5,6 +5,7 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { KeysPipe } from './keys.pipe';
 import { GetTypePipe } from './get-type.pipe';
 import { GetOptionsPipe } from './get-options.pipe';
+import { GetColumnPipe } from './get-column.pipe';
 
 
 
@@ -13,7 +14,8 @@ import { GetOptionsPipe } from './get-options.pipe';
     SpreadsheetComponent,
     KeysPipe,
     GetTypePipe,
-    GetOptionsPipe
+    GetOptionsPipe,
+    GetColumnPipe
   ],
   exports: [
     SpreadsheetComponent

@@ -1,7 +1,7 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { FormArray, FormBuilder, FormGroup, Validators } from '@angular/forms';
 
-export type InputType = 'string' | 'number' | 'date' | 'select';
+export type InputType = 'text' | 'number' | 'date' | 'select';
 
 export class SheetOption {
   id: number;
